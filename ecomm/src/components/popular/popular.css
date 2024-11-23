@@ -1,0 +1,64 @@
+/* Base styles (for larger screens) */
+.popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.popular h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.popular hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: black;
+}
+
+.popular-item {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+/* Tablet view (max-width: 768px) */
+@media (max-width: 768px) {
+    .popular h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .popular-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* Mobile view (max-width: 480px) */
+@media (max-width: 480px) {
+    .popular h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .popular-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .popular hr {
+        width: 150px;
+    }
+
+    /* Adjust margin for better spacing on mobile */
+    .popular-item {
+        margin-top: 30px;
+    }
+}

@@ -1,0 +1,70 @@
+/* Base styles for larger screens */
+.item {
+    width: 350px;
+}
+
+.item p {
+    margin: 6px 0px;
+}
+
+.item-prices {
+    display: flex;
+    gap: 20px;
+}
+
+.item-price-new {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item-price-old {
+    color: #8c8c8c;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .item {
+        width: 100%; /* Adjust width to fit the screen */
+        padding: 10px; /* Add some padding for better spacing */
+    }
+
+    .item-prices {
+        flex-direction: column; /* Stack prices vertically */
+        gap: 10px; /* Reduce gap for smaller screens */
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 100%; /* Full width for very small screens */
+        padding: 8px;
+    }
+
+    .item p {
+        margin: 4px 0px; /* Reduce margin for better fit */
+    }
+
+    .item-prices {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 14px; /* Further reduce font size */
+    }
+}

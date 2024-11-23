@@ -1,0 +1,30 @@
+/* Base styles for larger screens */
+.breadcrum {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 60px 130px;
+  text-transform: capitalize;
+}
+
+/* Tablet View - Medium Screens */
+@media (max-width: 768px) {
+  .breadcrum {
+    margin: 40px 30px; /* Reduce margin for smaller screens */
+    font-size: 14px;   /* Adjust font size */
+    gap: 6px;          /* Reduce gap */
+  }
+}
+
+/* Mobile View - Small Screens */
+@media (max-width: 480px) {
+  .breadcrum {
+    flex-direction: column; /* Stack items vertically */
+    margin: 20px 15px;      /* Further reduce margin */
+    font-size: 12px;        /* Smaller font size for mobile */
+    gap: 4px;               /* Minimize gap */
+  }
+}

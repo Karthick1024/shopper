@@ -1,0 +1,119 @@
+/* Base styles (for larger screens) */
+.newsletter {
+    width: 90%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 0px 140px;
+    margin-bottom: 150px;
+    background: linear-gradient(180deg, #e39de8 0%, #e1ffea22 60%);
+    gap: 30px;
+}
+
+.newsletter h1 {
+    color: #454545;
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.newsletter p {
+    color: #454545;
+    font-size: 20px;
+}
+
+.newsletter div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 730px;
+    height: 70px;
+    border-radius: 80px;
+    border: 1px solid #e3e3e3;
+}
+
+.newsletter input {
+    width: 500px;
+    margin-left: 30px;
+    border: none;
+    outline: none;
+    font-family: Poppins;
+    font-size: 16px;
+}
+
+.newsletter div button {
+    width: 210px;
+    height: 70px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Tablet view (max-width: 768px) */
+@media (max-width: 768px) {
+    .newsletter {
+        padding: 0px 60px;
+        height: auto;
+    }
+
+    .newsletter h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .newsletter p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .newsletter div {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .newsletter input {
+        width: 70%;
+    }
+
+    .newsletter div button {
+        width: 30%;
+    }
+}
+
+/* Mobile view (max-width: 480px) */
+@media (max-width: 480px) {
+    .newsletter {
+        padding: 0px 20px;
+        height: auto;
+    }
+
+    .newsletter h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .newsletter p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .newsletter div {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .newsletter input {
+        width: 80%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .newsletter div button {
+        width: 80%;
+        margin-top: 10px;
+    }
+}
