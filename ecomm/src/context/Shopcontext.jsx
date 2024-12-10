@@ -5,6 +5,11 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const Shopcontext  = createContext(null);
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
 const getDefaultCart = () => {
     let cart = {};
     for (let index = 0; index < 300 + 1; index++){
@@ -19,24 +24,11 @@ const ShopcontextProvider = (props) =>{
     
     const [cartItems,setCartItems] = useState(getDefaultCart());
 
-    // useEffect(()=>{
-    //     fetch('http://localhost:4000/allproducts').then((response) => response.json()).then((data=>setAll_product(data)))
-    //     if(localStorage.getItem('auth-token')){
-    //         fetch('http://localhost:4000/getcart',{
-    //             method:'POST',
-    //             headers:{
-    //                 Accept:'application/form-data',
-    //                 'auth-token':`${localStorage.getItem('auth-token')}`,
-    //                 'Content-Type':'application/json',
-    //             },
-    //             body:"",
-    //         }).then((response)=>response.json())
-    //         .then((data)=>setCartItems(data));
-    //     }
-    // },[])
+ 
     useEffect(() => {
         // Fetch all products
-        fetch('http://localhost:4000/allproducts')
+        // fetch('http://localhost:4000/allproducts')
+        fetch(`${API_URL}/api/endpoint`)
           .then((response) => response.json())
           .then((data) => setAll_product(data))
           .catch((err) => console.error('Error fetching products:', err));
