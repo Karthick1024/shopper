@@ -5,11 +5,13 @@ import './newcollwctions.css'
 import Item from '../item/Item'
 import { useEffect, useState } from 'react'
 
+const url = 'https://shopper-backend-26t2.onrender.com'
+
 const Newcollections = () => {
   const [new_collection,setNew_collection] = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:4000/newcollections').then((response)=>response.json()).then((data)=>setNew_collection(data));
+    fetch(`${url}/newcollections`).then((response)=>response.json()).then((data)=>setNew_collection(data));
   },[])
   
   return (

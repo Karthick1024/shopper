@@ -5,11 +5,13 @@ import './popular.css'
 import Item from '../item/Item'
 import { useEffect, useState } from 'react'
 
+const url = 'https://shopper-backend-26t2.onrender.com'
+
 const Popular = () => {
   const [popularproducts,setPopularproducts] = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:4000/popularinwomen').then((response)=>response.json()).then((data)=>setPopularproducts(data));
+    fetch(`${url}/popularinwomen`).then((response)=>response.json()).then((data)=>setPopularproducts(data));
   },[])
   
   return (

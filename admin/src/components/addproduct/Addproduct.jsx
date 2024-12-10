@@ -4,6 +4,8 @@ import './addproduct.css'
 import upload_area from '../../Admin_Assets/upload_area.svg'
 
 const Addproduct = () => {
+
+    const url = 'https://shopper-backend-26t2.onrender.com'
     const [image, setImage] = useState(false);
 
     const [productDetails, setProductDetails] = useState({
@@ -30,7 +32,7 @@ const Addproduct = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        await fetch('http://localhost:4000/upload', {
+        await fetch(`${url}/upload`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json'
@@ -41,7 +43,7 @@ const Addproduct = () => {
         if (responseData.success) {
             product.image = responseData.image_url;
             console.log(product);
-            await fetch('http://localhost:4000/addproduct', {
+            await fetch(`${url}/addproduct`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

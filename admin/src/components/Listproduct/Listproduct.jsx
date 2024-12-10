@@ -5,10 +5,12 @@ import cross_icon from '../../Admin_Assets/cross_icon.png'
 
 const Listproduct = () => {
 
+  const url = 'https://shopper-backend-26t2.onrender.com'
+
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch('http://localhost:4000/allproducts')
+    await fetch(`${url}/allproducts`)
     .then((res) => res.json())
     .then((data) => { setAllProducts(data) });
   }
@@ -18,7 +20,7 @@ const Listproduct = () => {
   },[])
 
   const remove_product = async (id) => {
-    await fetch('http://localhost:4000/removeproduct',{
+    await fetch(`${url}/removeproduct`,{
       method:'POST',
       headers:{
         Accept:'application/json',

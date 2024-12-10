@@ -4,6 +4,8 @@ import './css/loginsignup.css'
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+
+  const url = 'https://shopper-backend-26t2.onrender.com'
   
   const [state,setState] = useState("Login");
   const [formData,setFormData] = useState({
@@ -18,7 +20,7 @@ export const Login = () => {
   const login = async () => {
     console.log("Login function",formData);
     let responseData;
-    await fetch('http://localhost:4000/login',{
+    await fetch(`${url}/login`,{
       method:'POST',
       headers:{
          Accept:'application/json',
@@ -41,7 +43,7 @@ export const Login = () => {
   const signup = async () => {
     console.log("Sign Up function",formData);
     let responseData;
-    await fetch('http://localhost:4000/signup',{
+    await fetch(`${url}/signup`,{
       method:'POST',
       headers:{
          Accept:'application/json',
