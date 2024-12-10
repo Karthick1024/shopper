@@ -61,7 +61,7 @@ const Listproduct = () => {
       <h1>All Products List</h1>
       {error && <p className="error">{error}</p>}
       <div className="list-product-format-main">
-        <p>Image</p>
+       
         <p>Products</p>
         <p>Title</p>
         <p>Old Price</p>
