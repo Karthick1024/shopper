@@ -17,6 +17,7 @@ const Listproduct = () => {
         throw new Error('Failed to fetch products');
       }
       const data = await res.json();
+      console.log(data);  // Check the response to make sure the image URL is correct
       setAllProducts(data);
     } catch (err) {
       setError(err.message);
@@ -61,7 +62,6 @@ const Listproduct = () => {
       <h1>All Products List</h1>
       {error && <p className="error">{error}</p>}
       <div className="list-product-format-main">
-       
         <p>Products</p>
         <p>Title</p>
         <p>Old Price</p>
@@ -77,7 +77,12 @@ const Listproduct = () => {
         ) : (
           allproducts.map((product) => (
             <div key={product.id} className="list-product-format-main listproduct-format">
-              <img src={product.image} className='listproduct-product-icon' alt={product.name} />
+              {/* Check if the image URL exists */}
+              <img 
+                src={product.image || 'path/to/default-image.jpg'}  // Fallback image
+                className='listproduct-product-icon' 
+                alt={product.name} 
+              />
               <p>{product.name}</p>
               <p>{product.old_price}</p>
               <p>{product.new_price}</p>
