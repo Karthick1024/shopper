@@ -32,7 +32,7 @@ const ShopcontextProvider = (props) =>{
       
         // Fetch cart items if auth-token exists
         if (localStorage.getItem('auth-token')) {
-          fetch('url/getcart', {
+          fetch(`${url}/getcart`, {
             method: 'POST',
             headers: {
               'Accept': 'application/json',  // Corrected the content type
@@ -53,7 +53,7 @@ const ShopcontextProvider = (props) =>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         // console.log(cartItems);
         if(localStorage.getItem('auth-token')){
-            fetch('url/addtocart',{
+            fetch(`${url}/addtocart`,{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
