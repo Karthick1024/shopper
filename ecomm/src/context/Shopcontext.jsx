@@ -5,10 +5,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const Shopcontext  = createContext(null);
 
-// const API_URL = process.env.REACT_APP_API_URL;
-
-//   .then(response => response.json())
-//   .then(data => console.log(data));
+const url = 'https://shopper-backend-26t2.onrender.com'
 
 const getDefaultCart = () => {
     let cart = {};
@@ -27,15 +24,15 @@ const ShopcontextProvider = (props) =>{
  
     useEffect(() => {
         // Fetch all products
-        fetch('http://localhost:4000/allproducts')
-        // fetch(`${API_URL}/allproducts`)
+        fetch( `${url}/allproducts`)
+        
           .then((response) => response.json())
           .then((data) => setAll_product(data))
           .catch((err) => console.error('Error fetching products:', err));
       
         // Fetch cart items if auth-token exists
         if (localStorage.getItem('auth-token')) {
-          fetch('http://localhost:4000/getcart', {
+          fetch('url/getcart', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',  // Corrected the content type
@@ -56,7 +53,7 @@ const ShopcontextProvider = (props) =>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         // console.log(cartItems);
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/addtocart',{
+            fetch('url/addtocart',{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -74,7 +71,7 @@ const ShopcontextProvider = (props) =>{
     const removeFromCart = (itemId) => {
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/removefromcart',{
+            fetch(`${url}/removefromcart`,{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -87,17 +84,7 @@ const ShopcontextProvider = (props) =>{
             .then((data)=>console.log(data));
         }
     }
-    // const getTotalCartAmount = () => {
-    //     let totalamount = 0;
-    //     for(const item in cartItems){
-    //         if(cartItems[item]>0){
-    //             let itemInfo = all_product.find((product)=>product.id===Number(item));
-    //             totalamount += cartItems[item] *itemInfo.new_price ;
-    //         }
-           
-    //     }
-    //     return totalamount;
-    // }
+   
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
