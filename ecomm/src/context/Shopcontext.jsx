@@ -5,7 +5,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const Shopcontext  = createContext(null);
 
-const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = process.env.REACT_APP_API_URL;
 
 //   .then(response => response.json())
 //   .then(data => console.log(data));
@@ -27,8 +27,8 @@ const ShopcontextProvider = (props) =>{
  
     useEffect(() => {
         // Fetch all products
-        // fetch('http://localhost:4000/allproducts')
-        fetch(`${API_URL}/allproducts`)
+        fetch('http://localhost:4000/allproducts')
+        // fetch(`${API_URL}/allproducts`)
           .then((response) => response.json())
           .then((data) => setAll_product(data))
           .catch((err) => console.error('Error fetching products:', err));
