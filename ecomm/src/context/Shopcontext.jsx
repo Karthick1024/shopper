@@ -28,7 +28,7 @@ const ShopcontextProvider = (props) =>{
     useEffect(() => {
         // Fetch all products
         // fetch('http://localhost:4000/allproducts')
-        fetch(`${API_URL}/api/endpoint`)
+        fetch(`${API_URL}/allproducts`)
           .then((response) => response.json())
           .then((data) => setAll_product(data))
           .catch((err) => console.error('Error fetching products:', err));
